@@ -9,12 +9,12 @@
     >
       <button
         @click="emit('close')"
-        class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl"
+        class="absolute top-2 right-4 text-secondary hover:text-primary text-xl"
       >
-        ×
+        <strong>x</strong>
       </button>
 
-      <h2 class="text-xl font-semibold mb-4">
+      <h2 class="text-xl font-semibold mb-4 text-secondary">
         {{ props.produto?.id ? 'Editar Produto' : 'Novo Produto' }}
       </h2>
 
@@ -48,7 +48,7 @@
           <button type="button" @click="emit('close')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">
             Cancelar
           </button>
-          <button type="submit" class="px-4 py-2 bg-secondary text-white rounded hover:primary">
+          <button type="submit" class="px-4 py-2 bg-secondary text-white rounded hover:bg-primary">
             Salvar
           </button>
         </div>
