@@ -1,75 +1,45 @@
-# Nuxt Minimal Starter
+# Search Frontend de Produtos
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Este projeto é o frontend de uma aplicação de busca e gerenciamento de produtos, desenvolvido com Nuxt 3, TypeScript e Tailwind CSS. Ele consome a [API de produtos](https://github.com/DigaoSantos/search-api-produtos) e oferece uma interface moderna, responsiva e intuitiva.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## Tecnologias utilizadas
+
+- **Nuxt 3** — framework full-stack para Vue.js
+- **Vue 3 + TypeScript**
+- **Tailwind CSS** — estilização utilitária e responsiva
+- **lucide-vue-next** — ícones SVG modernos
+- **@vueform/slider** — controle deslizante para filtros
+- **vue-toastification** — sistema de notificações elegante
+
+---
+
+## Como rodar o projeto localmente
+
+### 1. Clone o repositório
 
 ```bash
-# npm
+git clone https://github.com/DigaoSantos/search-frontend-produtos.git
+cd search-frontend-produtos
+```
+
+### 2. Instale as dependências
+
+```bash
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+> Certifique-se de estar utilizando **Node.js na versão 18**.
 
-Start the development server on `http://localhost:3000`:
+
+### 3. Inicie o servidor de desenvolvimento
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+A aplicação estará disponível em: [http://localhost:3000](http://localhost:3000)
 
-Build the application for production:
+---
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
