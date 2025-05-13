@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.slider-connect {
+    background: #bc2a68 !important;
+}
+
+.slider-tooltip {
+    background:#bc2a68 !important;
+    border-color: #bc2a68 !important;
+}
