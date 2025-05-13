@@ -18,7 +18,7 @@
         {{ props.produto?.id ? 'Editar Produto' : 'Novo Produto' }}
       </h2>
 
-      <form @submit.prevent="salvar">
+      <form @submit.prevent="salvar" ref="formRef">
         <div class="mb-4">
           <label class="block text-sm font-medium mb-1">Nome</label>
           <input v-model="form.nome" type="text" class="w-full border p-2 rounded" required />
@@ -26,22 +26,22 @@
 
         <div class="mb-4">
           <label class="block text-sm font-medium mb-1">Categoria</label>
-          <input v-model="form.categoria" type="text" class="w-full border p-2 rounded" />
+          <input v-model="form.categoria" type="text" class="w-full border p-2 rounded" required />
         </div>
 
         <div class="mb-4">
           <label class="block text-sm font-medium mb-1">Descrição</label>
-          <textarea v-model="form.descricao" class="w-full border p-2 rounded" rows="3"></textarea>
+          <textarea v-model="form.descricao" class="w-full border p-2 rounded" rows="3" required></textarea>
         </div>
 
         <div class="mb-4">
           <label class="block text-sm font-medium mb-1">Preço</label>
-          <input v-model.number="form.preco" type="number" step="0.01" class="w-full border p-2 rounded" required />
+          <input v-model.number="form.preco" type="number" step="0.01" min="0.01" class="w-full border p-2 rounded" required />
         </div>
 
         <div class="mb-4">
           <label class="block text-sm font-medium mb-1">URL da Imagem</label>
-          <input v-model="form.imagem" type="url" class="w-full border p-2 rounded" />
+          <input v-model="form.imagem" type="url" class="w-full border p-2 rounded" required />
         </div>
 
         <div class="flex justify-end gap-2 mt-6">
@@ -87,6 +87,8 @@ const form = reactive({
   imagem: '',
 });
 
+const formRef = ref<HTMLFormElement | null>(null);
+
 watch(
   () => props.produto,
   (p) => {
@@ -104,9 +106,12 @@ watch(
 );
 
 const salvar = () => {
-  emit('salvar', { ...form });
-  
-  toast.success('Produto salvo com sucesso!');
+  if (formRef.value?.checkValidity()) {
+    emit('salvar', { ...form });
+    toast.success('Produto salvo com sucesso!');
+  } else {
+    toast.error('Por favor, preencha todos os campos obrigatórios corretamente.');
+  }
 };
 
 const onKeydown = (e: KeyboardEvent) => {
